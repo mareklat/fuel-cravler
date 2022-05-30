@@ -18,7 +18,7 @@ jobs:
         run: |
          PRICE=$(dart run)
          mkdir public
-          cat > public/index.html << $PRICE
+          cat <<< "$PRICE" > public/index.html
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v3
