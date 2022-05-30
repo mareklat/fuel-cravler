@@ -22,7 +22,18 @@ jobs:
       - name: Get data
         run: |
          PRICE=$(dart run)
-         echo $PRICE
-      - name: Save data
-        run: echo $PRICE
+         mkdir public
+          cat > public/index.html <<EOL
+          $PRICE
+          EOL
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         
+         
       
