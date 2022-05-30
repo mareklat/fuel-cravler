@@ -20,7 +20,9 @@ jobs:
       - name: Install dependencies
         run: dart pub get
       - name: Get data
-        run: PRICE=$(dart run)
+        run: |
+         PRICE=$(dart run)
+         echo $PRICE
       - name: Save data
         run: echo $PRICE
       
