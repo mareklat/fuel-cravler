@@ -1,8 +1,8 @@
 name: Dart
 
 on:
-  schedule:
-    - cron: "0 6,14 * * *"
+#   schedule:
+#     - cron: "0 6,14 * * *"
   workflow_dispatch:
 
 jobs:
